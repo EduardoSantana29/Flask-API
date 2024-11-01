@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalhes do Aluno</title>
+  </head>
+
+  <body>
+    <h1>Detalhes do Aluno</h1>
+    <p><strong>ID:</strong> {{ aluno.id }}</p>
+    <p><strong>Nome:</strong> {{ aluno.nome }}</p>
+    <p><strong>Idade:</strong> {{ aluno.idade }}</p>
+    <p><strong>Data de Nascimento:</strong> {{ aluno.data_nascimento }}</p>
+    <p>
+      <strong>Nota Primeiro Semestre:</strong> {{ aluno.nota_primeiro_semestre}}
+    </p>
+    <p>
+      <strong>Nota Segundo Semestre:</strong> {{ aluno.nota_segundo_semestre }}
+    </p>
+    <p><strong>Média Final:</strong> {{ aluno.media_final }}</p>
+    <p><strong>Turma ID:</strong> {{ aluno.turma_id }}</p>
+
+    <form
+      id="delete-form"
+      action="{{ url_for('aluno.delete_aluno', id_aluno=aluno.id) }}"
+      method="POST"
+    >
+      <input type="hidden" name="_method" value="DELETE" />
+      <button type="submit">Excluir Aluno</button>
+    </form>
+    <form
+      id="edit-form"
+      action="{{ url_for('aluno.editar_aluno_page', id_aluno=aluno.id) }}"
+      method="GET"
+    >
+      <button type="submit">Editar Aluno</button>
+    </form>
+    <a href="{{ url_for('aluno.get_alunos') }}"
+      >Voltar para a lista de alunos</a
+    >
+  </body>
+</html>

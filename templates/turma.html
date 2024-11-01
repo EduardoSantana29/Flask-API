@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Turma</title>
+  </head>
+
+  <body>
+    <h1>Lista de Turma</h1>
+    <form
+      id="add-form"
+      action="{{ url_for('turma.adicionar_turma_page') }}"
+      method="GET"
+    >
+      <button type="submit">Adicionar Turma</button>
+    </form>
+    <a href="{{ url_for('turma.getIndex') }}">Voltar para a Home</a>
+    <ul>
+      {% for turma in turma %}
+      <li>
+        <a href="{{ url_for('turma.get_turma', id_turma=turma.id) }}"
+          >(ID: {{ turma.id }})</a
+        ><br />
+        Descricao: {{ turma.descricao }}<br />
+        Status: {{ turma.status }}<br />
+        Professor ID: {{ turma.professor_id }}<br />
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

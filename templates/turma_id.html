@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalhes da Turma</title>
+  </head>
+
+  <body>
+    <h1>Detalhes da Turma</h1>
+    <p><strong>ID:</strong> {{ turma.id }}</p>
+    <p><strong>Descricao:</strong> {{ turma.descricao }}</p>
+    <p><strong>Status:</strong> {{ turma.status }}</p>
+    <p><strong>Prefessor ID:</strong> {{ turma.professor_id }}</p>
+
+    <form
+      id="delete-form"
+      action="{{ url_for('turma.delete_turma', id_turma=turma.id) }}"
+      method="POST"
+    >
+      <input type="hidden" name="_method" value="DELETE" />
+      <button type="submit">Excluir Turma</button>
+    </form>
+    <form
+      id="edit-form"
+      action="{{ url_for('turma.editar_turma_page', id_turma=turma.id) }}"
+      method="GET"
+    >
+      <button type="submit">Editar Turma</button>
+    </form>
+    <a href="{{ url_for('turma.get_turmas') }}">Voltar para a lista de turma</a>
+  </body>
+</html>

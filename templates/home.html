@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalhes do Aluno</title>
+  </head>
+
+  <body>
+    <h1>Faculdade Impacta</h1>
+
+    <form
+      id="list_aluno-form"
+      action="{{ url_for('aluno.get_alunos')}}"
+      method="GET"
+    >
+      <button type="submit">Lista de Alunos</button>
+    </form>
+    <form
+      id="list_professor-form"
+      action="{{ url_for('professor.get_professores') }}"
+      method="GET"
+    >
+      <button type="submit">Lista de Professores</button>
+    </form>
+    <form
+      id="list_turma-form"
+      action="{{ url_for('turma.get_turmas') }}"
+      method="GET"
+    >
+      <button type="submit">Lista de Turmas</button>
+    </form>
+  </body>
+</html>

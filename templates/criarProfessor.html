@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adicionar Professor</title>
+  </head>
+
+  <body>
+    <h1>Adicionar Professor</h1>
+    <form action="{{ url_for('professor.create_professor') }}" method="post">
+      <label for="nome">Nome:</label><br />
+      <input type="text" id="nome" name="nome" /><br />
+
+      <label for="idade">Idade:</label><br />
+      <input type="number" id="idade" name="idade" /><br />
+
+      <label for="materia">Matéria:</label><br />
+      <input type="text" id="materia" name="materia" /><br />
+
+      <label for="observacoes">Observaçãoes:</label><br />
+      <input
+        type="text"
+        id="observacoes"
+        name="observacoes"
+        step="0.01"
+      /><br />
+
+      <input type="submit" value="Adicionar Professor" />
+    </form>
+    <a href="{{ url_for('professor.get_professores') }}"
+      >Voltar para a lista de alunos</a
+    >
+  </body>
+</html>

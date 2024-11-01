@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Aluno</title>
+  </head>
+
+  <body>
+    <h1>Lista de Aluno</h1>
+    <form
+      id="add-form"
+      action="{{ url_for('aluno.adicionar_aluno_page') }}"
+      method="GET"
+    >
+      <button type="submit">Adicionar Aluno</button>
+    </form>
+    <a href="{{ url_for('aluno.getIndex') }}">Voltar para a Home</a>
+    <ul>
+      {% for aluno in aluno %}
+      <li>
+        <a href="{{ url_for('aluno.get_aluno', id_aluno=aluno.id) }}"
+          >(ID: {{ aluno.id }})</a
+        ><br />
+        Nome: {{ aluno.nome }}<br />
+        Idade: {{ aluno.idade }}<br />
+        Data de Nascimento: {{ aluno.data_nascimento }}<br />
+        Nota Primeiro Semestre: {{ aluno.nota_primeiro_semestre }}<br />
+        Nota Segundo Semestre: {{ aluno.nota_segundo_semestre }}<br />
+        Média Final: {{ aluno.media_final }}<br />
+        Turma ID: {{ aluno.turma_id }}
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
